@@ -304,3 +304,48 @@
   - 안의 데이터 값들을 수치화해야하므로, string으로 저장되어 있는 데이터들을 column으로 올리고 안의 데이터 값은 0 or 1로 나타낸다.
   - 코드 및 결과
     ![object](./README/object.JPG)
+
+- 이상치(Outlier) 확인
+  -  ![outlier](./README/outlier.JPG)
+  -  ![outlier](./README/outlier2.JPG)
+  -  각 column에서 보면 유독 2개의 값이 정상에서 벗어나므로 이를 제거합니다.
+     - ![remove_outlier](./README/remove_outlier.JPG)
+  - ![clean_outlier](./README/clean_outlier.JPG)
+    - 튀는 outlier가 없는 그래프가 그려졌음을 확인 가능.
+  
+- 여기서는 train_set과 test_set을 따로 주었기 때문에, train_set에서 일부분을 때어와서 test_set을 사용하는 부분은 하지 않는다.
+  - 하지만 모델명 column을 전처리하면서 train_set의 column domain 과 test_set의 column domain이 달라졌으므로 이를 통일 시켜줘야한다.
+    - 그리하여 test_set의 column들만을 feature로 남기기로 했으며, "가격"을 예측해야하므로 y_train의 lable_name = "가격"을 넣어주었다.
+    - ![same_feature](./README/same_feature.JPG)
+- ![random_forest](./README/random_forest.JPG)
+  - 그 후 앙상블의 기법 중 하나인 Random Forest 방식을 이용하여 모델을 생성하였다.
+  - Random Forest의 forest는 숲, 결정 트리는 나무이다. 즉, 여러 결정트리들이 모여서 하나의 앙상블 모델을 이루는 것을 랜덤포레스트 모델이라고 한다. 결정 트리에서 컬럼(Feature)가 많아지면 오버피팅 문제가 일어난다. 이를 해결하기 위해 Feature의 갯수를 추려 작은 결정트리를 여러개로 만들어 하나로 합치는 것을 랜덤포레스트라고 한다.
+    - 출처 : https://ebbnflow.tistory.com/141?category=738689
+  - Column수가 많은 모델이므로 일반 다중선형회귀보다 앙상블 모델을 이용해야 정확도를 높일 수 있다.
+
+- ![predict](./README/predict.JPG)
+  - 예측 결과를 확인할 수 있으며 이러한 결과를 sample.csv 형식에 맞춰 넣어주었다.
+- ![result](./README/result.JPG)
+  - sample.csv에 예측 결과 입력.
+
+---
+
+## 대회 결과
+
+<details>
+<summary>등수</summary>
+
+  - ![score](./README/score.JPG)
+  - 69명 중 11등.
+</details>
+
+- 주관
+  - 경북대학교 SW교육센터
+
+- 참가대상
+  - 지역선도대학육성사업 컨소시엄 참여 대학교 참여학과 재학생
+  - 참여 대학교: 경북대학교, 계명대학교, 경운대학교, 한동대학교, 동국대학교(경주)
+
+
+- 우수상
+  - ![money](./README/money.JPG)
